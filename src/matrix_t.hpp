@@ -17,11 +17,9 @@
 
 using namespace std;
 
-namespace AED
-{
+namespace AED {
 template<class T>
-class matrix_t
-{
+class matrix_t {
 public:
   matrix_t(const int = 0, const int = 0);
   ~matrix_t();

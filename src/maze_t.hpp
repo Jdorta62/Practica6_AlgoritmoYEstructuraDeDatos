@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include "matrix_t.hpp"
+#include "dll_t.h"
+#include "pair_t.h"
 
 #define TRACE(x) cout << (#x) << "= " << (x) << endl
 
@@ -48,8 +50,7 @@ const short i_d[] = { -1, 0, 1,  0};
 const short j_d[] = {  0, 1, 0, -1};
 
 
-class maze_t 
-{
+class maze_t  {
 private:
   // matriz que guarda los valores leídos de la entrada
   matrix_t_short matrix_;
@@ -57,6 +58,8 @@ private:
   matrix_t_bool visited_;
   // guarda las filas y columnas de entrada (start) y salida (end)
   int i_start_, j_start_, i_end_, j_end_;
+  // guarda la lista que contiene la solución del laberinto.
+  dll_t<pair_t<int>> solution_; // con get_val() se obtiene la coordenada correspondiente a la fila y con get_inx() la coordenada correspondiente a la columna
 
 public:
   // constructor y destructor
@@ -68,6 +71,7 @@ public:
 
   istream& read(istream& = cin);
   ostream& write(ostream& = cout) const;
+  void WriteSolution();
   
 private:
   bool is_ok_(const int, const int) const;
