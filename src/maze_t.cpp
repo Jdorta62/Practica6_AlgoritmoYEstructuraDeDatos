@@ -132,6 +132,11 @@ bool maze_t::solve_(const int i, const int j) {
       return true;
     }
   }
+
+  //Modificación: la modificación trataba de limitar el movimiento únicamente a norte y oeste. Por ese motivo se comentó desde
+  //la línea 139 hasta la 159. Si se descomentara, no habría limitación de movimiento pues tambien podrá moverse al sur y al este.
+
+  /*
   if (is_ok_((i + i_d[1]), (j + j_d[1]))) {
     if (solve_((i + i_d[1]), (j + j_d[1]))) {
       matrix_(i,j) = PATH_ID;
@@ -141,6 +146,7 @@ bool maze_t::solve_(const int i, const int j) {
       return true;
     }
   }
+  
   if (is_ok_((i + i_d[2]), (j + j_d[2]))) {
     if (solve_((i + i_d[2]), (j + j_d[2]))) {
       matrix_(i,j) = PATH_ID;
@@ -150,6 +156,7 @@ bool maze_t::solve_(const int i, const int j) {
       return true;
     }
   }
+  */
     if (is_ok_((i + i_d[3]), (j + j_d[3]))) {
     if (solve_((i + i_d[3]), (j + j_d[3]))) {
       matrix_(i,j) = PATH_ID;
